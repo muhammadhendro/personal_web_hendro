@@ -1,0 +1,163 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    
+    <link rel="stylesheet" href="public/style.css" />
+  </head>
+  <body>
+    {{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img
+            src="public/assets/logo.png"
+            alt=""
+          /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse d-flex"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-orange" href="/blog">Blog</a>
+            </li>
+          </ul>
+
+          <a class="btn text-white px-4 bg-orange" href="/contact">Contact Me</a>
+        </div>
+      </div>
+    </nav> --}}
+
+    <nav>
+      <div class="left">
+        <a href="/">
+          <img src="public/assets/logo2.png" alt="logo" style="width: 50px;" />
+        </a>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog" class="list-active">Blog</a>
+          </li>
+        </ul>
+        <div class="left2">
+          {{#if isLogin}}
+            <ul>
+              <li>
+                <span style="color: white" href="/">Halo, {{user.name}}</span>
+              </li>
+              <li>
+                <a class="alogout" href="/logout">Logout</a>
+              </li>
+            </ul>
+          {{else}}
+            <ul>
+              <li>
+                <a href="/register">Register</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            </ul>
+          {{/if}}
+        </div>
+      </div>
+      
+      <div class="right">
+        <a href="/contact"> Contact Me </a>
+      </div>
+    </nav>
+
+    {{!-- <div
+      class="container-fluid d-flex justify-content-center align-items-center"
+    >
+      <div class="container-form">
+        <p class="h2 text-center mb-4">Create Post Blog</p>
+        <form action="/blog" method="POST">
+          <div class="mb-3 ">
+            <label for="title" class="form-label">Title</label>
+            <input
+              name="title"
+              type="text"
+              class="form-control"
+              id="title"
+              aria-describedby="emailHelp"
+            />
+
+          </div>
+          <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea
+              name="content"
+              class="form-control"
+              id="content"
+              rows="5"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Upload Image</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <div class="text-end mt-5">
+            <button type="submit" class="btn bg-orange text-white">Post Blog</button>
+          </div>
+        </form>
+
+      </div>
+    </div> --}}
+ {{#if messages.danger}}
+    <div class="alert">
+  
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  {{messages.danger}}
+</div>
+{{/if}}
+     <div class="blog">
+      <div class="blog-form">
+        <div class="form-container">
+          <form action="/blog" method="POST" enctype="multipart/form-data" class="formBlog">
+            <h1>Create Post Blog</h1>
+            <div>
+              <label for="input-blog-title">Title</label>
+              <input name="title" id="input-blog-title" />
+            </div>
+            <div>
+              <label for="input-blog-content">Content</label>
+              <textarea name="content" id="input-blog-content"></textarea>
+            </div>
+            <div class="mb-3">
+            <label for="image" class="form-label">Upload Image</label>
+            <input name="image" class="form-control" type="file" id="image" accept="image/*" />
+          </div>
+            <div class="button-group">
+              <button type="submit">Post Blog</button>
+            </div>
+          </form>
+        </div>
+      </div>
+     
+      <div id="contents" class="blog-list">
+        <!-- dynamic content would be here -->
+        
+      </div>
+    </div>
+    <script src="public/blog.js"></script>
+  </body>
+</html>

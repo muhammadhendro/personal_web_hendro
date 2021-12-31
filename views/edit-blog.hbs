@@ -1,0 +1,72 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{judul}}</title>
+    
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="left">
+        <a href="/">
+          <img src="/public/assets/logo2.png" alt="logo" style="width: 50px;" />
+        </a>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog" class="list-active">Blog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <a href="/contact"> Contact Me </a>
+      </div>
+    </nav>
+
+     <div class="blog">
+      <div class="blog-form">
+        <div class="form-container">
+          <form action="/edit-blog" method="POST" enctype="multipart/form-data" class="formBlog">
+            <h1>Edit Post Blog</h1>
+            <div>
+              
+              <input type="hidden" id="index" name="index" value="{{index}}" />
+             
+            </div>
+            {{!-- <div>
+               <input type="hidden" id="index" name="index" value="{{blogs.image}}" />
+            </div> --}}
+            <div>
+              <label for="input-blog-title">Title</label>
+              <input name="title" id="input-blog-title" value="{{blogs.title}}" />
+            </div>
+            <div>
+              <label for="input-blog-content">Content</label>
+              <textarea name="content" id="input-blog-content"   >{{blogs.content}}</textarea>
+            </div>
+            <div class="mb-3">
+            
+            <img src="/uploads/{{blogs.image}}" style="" class="imgEdit" alt=""><br>
+            <label for="image" class="form-label">Change Image</label><br>
+            <input name="image" class="form-control" type="file" id="image" accept="image/*" />
+          </div>
+            <div class="button-group">
+              <button type="submit">Edit Blog</button>
+            </div>
+          </form>
+        </div>
+      </div>
+     
+      <div id="contents" class="blog-list">
+        <!-- dynamic content would be here -->
+        
+      </div>
+    </div>
+    <script src="public/blog.js"></script>
+  </body>
+</html>

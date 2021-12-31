@@ -1,0 +1,77 @@
+
+<html>
+    <head>
+<link rel="stylesheet" href="public/style.css">
+<title>{{ title }}</title>
+    </head>
+    <body>
+        <nav>
+            <div class="left">
+              <img src="public/assets/logo2.png" alt="logo" style="width: 50px;" />
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+              </ul>
+              <div class="left2">
+       {{#if isLogin}}
+          <ul>
+            <li>
+              <span style="color: white" href="/">Halo, {{user.name}}</span>
+            </li>
+            <li>
+              <a href="/logout">Logout</a>
+            </li>
+          </ul>
+{{else}}
+          <ul>
+            <li>
+              <a href="/register">Register</a>
+            </li>
+            <li>
+              <a href="/login">Login</a>
+            </li>
+          </ul>
+{{/if}}
+        </div>
+            </div>
+            <div class="right">
+              <a href="contact">Contact Me</a>
+            </div>
+          </nav>
+          <div class="container-contact">
+        <form action="" class="kontak">
+            <div>
+            <label for="name">Name</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email">
+        </div>
+        <div>
+            <label for="nohp">Phone number</label>
+            <input type="text" id="nohp">
+        </div>
+        <div>
+            <label for="subject">Subject</label>
+            <select  id="subject">
+                <option value="Lets Colaboration">Lets Colaboration</option>
+                <option value="Lets Talk">Lets Talk</option>
+                <option value="Help making project">Help making project</option>
+            </select>
+        </div>
+        <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" >
+
+            </textarea>
+        </div>
+        <div>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </div>
+        </form>
+</div>
+
+        <script src="public/script.js"></script>
+    </body>
+</html>

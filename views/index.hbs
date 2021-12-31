@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="public/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="left">
+        <a href="/">
+          <img src="public/assets/logo2.png" alt="logo" style="width: 50px;" />
+        </a>
+        <ul>
+          <li><a href="/" class="list-active">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+        <div class="left2">
+          {{#if isLogin}}
+            <ul>
+              <li>
+                <span style="color: white" href="/">Halo, {{user.name}}</span>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            </ul>
+          {{else}}
+            <ul>
+              <li>
+                <a href="/register">Register</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            </ul>
+          {{/if}}
+        </div>
+      </div>
+      <div class="right">
+        <a href="/contact">Contact Me</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="section">
+        <div class="left">
+          <div class="card">
+            <img src="public/assets/my-img.jpeg" alt="" />
+            <h2>Muhammad Hendro</h2>
+            <p>
+              just normal people, born and live in Bandarlampung, currently
+              study at Universitas Teknokrat Indonesia
+            </p>
+
+            <table class="rounded-table">
+              <tr>
+                <th style="text-align: center">Project</th>
+                <th style="text-align: center">Year</th>
+              </tr>
+              {{#each blogs}}
+              <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.year}}</td>
+              </tr>
+              
+              {{/each}}
+            </table>
+          </div>
+        </div>
+        <div class="right">
+          <div>
+            <h1>What i do</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ab,
+              facere odit voluptas magni quidem id ullam consequuntur eveniet
+              quisquam asperiores, dolores nemo possimus magnam dicta facilis!
+              Laboriosam, fugiat quasi.
+            </p>
+            <div class="skill-container">
+              <div>
+                <img src="public/assets/js.png" alt="" />
+                <h2>Frontend Developer</h2>
+                <p>
+                  Front-end web development, also known as client-side
+                  development is the practice of producing HTML, CSS and
+                  JavaScript for a website or Web Application so that a user can
+                  see and interact with them directly
+                </p>
+              </div>
+              <div>
+                <img src="public/assets/git.png" alt="" />
+                <h2>Version Control</h2>
+                <p>
+                  Version control systems are software tools that help software
+                  teams manage changes to source code over time. As development
+                  environments have accelerated, version control systems help
+                  software teams work faster and smarter.
+                </p>
+              </div>
+              <div>
+                <img src="public/assets/rn.png" alt="" />
+                <h2>Mobile Developer</h2>
+                <p>
+                  mobile developer is a professional who is focused on
+                  developing software or systems for mobile devices. This role
+                  has become popular as more e-commerce and other digital
+                  interactions are taking place through smartphones and less
+                  through computers.
+                </p>
+              </div>
+            </div>
+            <h1>Found Me</h1>
+            <span class="socmed">
+              <a href="https://facebook.com" target="_blank"><img
+                  src="public/assets/fb.svg"
+                  alt=""
+                /></a>
+              <a href="https://twitter.com" target="_blank"><img
+                  src="public/assets/tw.png"
+                  alt=""
+                /></a>
+              <a href="https://instagram.com/hendrojun" target="_blank"><img
+                  src="public/assets/ig.png"
+                  alt=""
+                /></a>
+              <a href="mailto:hendro@gmail.com" target="_blank"><img
+                  src="public/assets/email.png"
+                  alt=""
+                /></a>
+              <a href="https://wa.me/6289693068623" target="_blank"><img
+                  src="public/assets/wa.png"
+                  alt=""
+                /></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="public/script.js"></script>
+  </body>
+</html>

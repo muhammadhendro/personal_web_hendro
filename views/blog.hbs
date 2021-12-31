@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="public/style.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  <body >
+    <!-- NavBar -->
+    <nav>
+      <div class="left">
+        <a href="/">
+          <img src="public/assets/logo2.png" alt="logo" style="width: 50px;" />
+        </a>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog" class="list-active">Blog</a>
+          </li>
+        </ul>
+        <div class="left2">
+          {{#if isLogin}}
+            <ul>
+              <li>
+                <span style="color: white" href="/">Halo, {{user.name}}</span>
+              </li>
+              <li>
+                <a class="alogout" href="/logout">Logout</a>
+              </li>
+            </ul>
+          {{else}}
+            <ul>
+              <li>
+                <a href="/register">Register</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            </ul>
+          {{/if}}
+        </div>
+
+      </div>
+      <div class="right">
+        <a href="/contact"> Contact Me </a>
+      </div>
+    </nav>
+    {{#if messages.success}}
+      <div class="alertsuccess">
+
+        <span
+          class="closebtn"
+          onclick="this.parentElement.style.display='none';"
+        >&times;</span>
+        {{messages.success}}
+      </div>
+    {{/if}}
+    <!-- Blog -->
+    <!-- Form -->
+    
+      <div class="blog">
+
+        <div style="text-align: right; padding-right: 200px; margin-top: 50px">
+          {{#if isLogin}}
+            <a href="add-blog" class="buttonAddBlog"><i class="fa fa-plus icon"></i> Add New Blog</a>
+            
+          {{/if}}
+        </div>
+
+        <div id="contents" class="blog-list">
+          <!-- dynamic content would be here -->
+          {{#each blogs}}
+            <div class="blog-list-item">
+              <div class="blog-image">
+                <img src="{{this.image}}" alt="" />
+              </div>
+              <div class="blog-content">
+                {{#if this.isLogin}}
+                  <div class="btn-group">
+                    <a href="/edit-blog/{{this.id}}" class="btn-edit"><i class="fa fa-edit icon"></i> Edit Post</a>
+                    <a
+                      href="/delete-blog/{{this.id}}"
+                      class="btn-post"
+                      onclick=" return confirm('Yakin ingin dihapus?')"
+                    ><i class="fa fa-trash icon"></i> Delete Blog</a>
+                  </div>
+                {{/if}}
+                <h1>
+                  <a
+                    href="/detail-blog/{{this.id}}"
+                    target="_blank"
+                  >{{this.title}}</a>
+                </h1>
+                <div class="detail-blog-content">
+                  {{this.post_at}}
+                  |
+                  {{this.author}}
+                </div>
+                <p>
+                  {{this.content}}
+                </p>
+                <div style="text-align: right; font-size: 15px; color: grey;">
+                  {{this.post_ago}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      
+    </div>
+    <script src="public/blog.js"></script>
+  </body>
+</html>
